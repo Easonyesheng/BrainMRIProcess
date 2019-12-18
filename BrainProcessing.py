@@ -29,7 +29,7 @@ class BrainProcess(QWidget):
         super(BrainProcess, self).__init__()
         self.SE = np.ones([3,3], dtype='int')
         self.info = {}
-        self.path = '/Users/zhangyesheng/Desktop/医学信息学/Project/temp/'
+        self.path = '/Users/zhangyesheng/Desktop/医学信息学/BrainMRIProcess/temp/'
         
 
         #Window 1200x1000
@@ -37,7 +37,7 @@ class BrainProcess(QWidget):
         self.setWindowTitle('BrainMRIProcessing')
         self.setWindowIcon(QIcon('/Users/zhangyesheng/Desktop/Icon.jpg'))
 
-        #label 1  -- original pic -- LeftUp
+        #label   -- original pic -- LeftUp
         self.label_OriPic = QLabel(self)
         self.label_OriPic.setFixedSize(400,400)
         self.label_OriPic.move(120,50)
@@ -46,25 +46,18 @@ class BrainProcess(QWidget):
         self.label_Oritxt.move(270,30) #+150,-20
         self.label_Oritxt.setText('Original Picture')
 
-        #label2 -- filename
-        self.label_fiilename = QLabel(self)
-        self.label_fiilename.setFixedSize(500,20)
-        self.label_fiilename.move(370,10)
-        self.label_fiilename.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:10px;font-weight:bold;font-family:宋体;}")
-        self.label_filetxt = QLabel(self)
-        self.label_filetxt.move(300,10)
-        self.label_filetxt.setText('File Name:')
+       
 
-        #label3 -- DeSkull -- RightUp
+        #label -- DeSkull -- RightUp
         self.label_DS = QLabel(self)
         self.label_DS.setFixedSize(400,400)
         self.label_DS.move(540,50)
         self.label_DS.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:10px;font-weight:bold;font-family:宋体;}")
         self.label_DStxt = QLabel(self)
         self.label_DStxt.move(690,30)
-        self.label_DStxt.setText('GMophology')
+        self.label_DStxt.setText('Deskull')
         
-        #label4 -- Information -- LeftDown
+        #label -- Information -- LeftDown
         '''
         information['PatientID'] 
         information['PatientName']
@@ -76,16 +69,63 @@ class BrainProcess(QWidget):
         information['InstitutionName'] 
         information['Manufacturer'] 
         '''
-        # self.label_ = QLabel(self)
-        # self.label_GR.setFixedSize(400,400)
-        # self.label_GR.move(120,470)
-        # self.label_GR.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:10px;font-weight:bold;font-family:宋体;}")
-        # self.label_GRtxt = QLabel(self)
-        # self.label_GRtxt.move(270,450)
-        # self.label_GRtxt.setText('Gary Reconstruction')
+        self.label_PaID = QtWidgets.QLabel(self)
+        self.label_PaID.setFixedSize(400,40)
+        self.label_PaID.move(120,470)
+        self.label_PaID.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:15px;font-weight:bold;font-family:Roman times;}")
+        self.label_PaID.setAlignment(Qt.AlignHCenter)
+
+        self.label_PaN = QtWidgets.QLabel(self)
+        self.label_PaN.setFixedSize(400,40)
+        self.label_PaN.move(120,510)
+        self.label_PaN.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:15px;font-weight:bold;font-family:Roman times;}")
+        self.label_PaN.setAlignment(Qt.AlignHCenter)
+
+        self.label_PaBD = QtWidgets.QLabel(self)
+        self.label_PaBD.setFixedSize(400,40)
+        self.label_PaBD.move(120,550)
+        self.label_PaBD.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:15px;font-weight:bold;font-family:Roman times;}")
+        self.label_PaBD.setAlignment(Qt.AlignHCenter)
+
+        self.label_PaS = QtWidgets.QLabel(self)
+        self.label_PaS.setFixedSize(400,40)
+        self.label_PaS.move(120,590)
+        self.label_PaS.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:15px;font-weight:bold;font-family:Roman times;}")
+        self.label_PaS.setAlignment(Qt.AlignHCenter)
+
+        self.label_SID = QtWidgets.QLabel(self)
+        self.label_SID.setFixedSize(400,40)
+        self.label_SID.move(120,630)
+        self.label_SID.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:15px;font-weight:bold;font-family:Roman times;}")
+        self.label_SID.setAlignment(Qt.AlignHCenter)
+        
+        self.label_SD = QtWidgets.QLabel(self)
+        self.label_SD.setFixedSize(400,40)
+        self.label_SD.move(120,670)
+        self.label_SD.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:15px;font-weight:bold;font-family:Roman times;}")
+        self.label_SD.setAlignment(Qt.AlignHCenter)
+
+        self.label_ST= QtWidgets.QLabel(self)
+        self.label_ST.setFixedSize(400,40)
+        self.label_ST.move(120,710)
+        self.label_ST.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:15px;font-weight:bold;font-family:Roman times;}")
+        self.label_ST.setAlignment(Qt.AlignHCenter)
 
 
-        #label5 -- Segmentation -- RightDown
+        self.label_IN = QtWidgets.QLabel(self)
+        self.label_IN.setFixedSize(400,40)
+        self.label_IN.move(120,750)
+        self.label_IN.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:15px;font-weight:bold;font-family:Roman times;}")
+        self.label_IN.setAlignment(Qt.AlignHCenter)
+
+        self.label_M = QtWidgets.QLabel(self)
+        self.label_M.setFixedSize(400,40)
+        self.label_M.move(120,790)
+        self.label_M.setStyleSheet("QLabel{background:white}" "QLabel{color:rgb(20,20,20);font-size:15px;font-weight:bold;font-family:Roman times;}")
+        self.label_M.setAlignment(Qt.AlignHCenter)
+        
+        
+        #label -- Segmentation -- RightDown
         self.count = 0
         self.label_S = QLabel(self)
         self.label_S.setFixedSize(400,400)
@@ -95,7 +135,8 @@ class BrainProcess(QWidget):
         self.label_Stxt.move(690,450)
         self.label_Stxt.setText('Segmentation')
 
-
+        
+        
         #------------------------------------------------------button
         #button -- imread
         btn_ir = QPushButton(self)
@@ -142,16 +183,37 @@ class BrainProcess(QWidget):
         img = Image.fromarray(imgArray)
         img = img.convert('L') #  -- https://blog.csdn.net/chris_pei/article/details/78261922
         img.save(self.path+'ori.jpg')
+        #show Img
         imshow = cv2.imread(self.path+'ori.jpg',0)
         self.img = imshow # ori image
-
+        QApplication.processEvents()
         height, width = imshow.shape
         bytesPerLine = width
         QImg_Gray = QImage(imshow.data, width, height, bytesPerLine, QImage.Format_Grayscale8)
         pixmap_Gray = QPixmap.fromImage(QImg_Gray)
         pixmap_Gray = pixmap_Gray.scaled(self.label_OriPic.width(),self.label_OriPic.height())
-        
         self.label_OriPic.setPixmap(pixmap_Gray)
+        # show information
+        '''
+        information['PatientID'] 
+        information['PatientName']
+        information['PatientBirthDate'] 
+        information['PatientSex'] 
+        information['StudyID'] 
+        information['StudyDate'] 
+        information['StudyTime'] 
+        information['InstitutionName'] 
+        information['Manufacturer'] 
+        '''
+        self.label_PaID.setText('PatientID: '+self.info['PatientID'])
+        self.label_PaN.setText('PatientName: '+str(self.info['PatientName']))
+        self.label_PaBD.setText('PatientBirthDate: '+self.info['PatientBirthDate'])
+        self.label_PaS.setText('PatientSex: '+self.info['PatientSex'])
+        self.label_SID.setText('StudyID: '+self.info['StudyID'])
+        self.label_SD.setText('StudyDate: '+self.info['StudyDate'])
+        self.label_ST.setText('StudyTime: '+self.info['StudyTime'])
+        self.label_IN.setText('InstitutionName: '+self.info['InstitutionName'])
+        self.label_M.setText('Manufacturer: '+self.info['Manufacturer'])
 
     # get rid of the skull and show on the QT
     def DeSkullWin(self):
@@ -160,14 +222,15 @@ class BrainProcess(QWidget):
         '''
         self.imshow -- image without skull 
         '''
-        self.imshow = cv2.imread('/Users/zhangyesheng/Desktop/医学信息学/Project/temp/de_sk_fin'+t+'.jpg',-1) 
+        self.imshow = cv2.imread(self.path+'de_sk_fin'+t+'.jpg',-1) 
         try:
             height, width = self.imshow.shape
         except AttributeError:
             img_R = DSK_DI_Morpho(self.array)
-            cv2.imwrite('/Users/zhangyesheng/Desktop/医学信息学/Project/temp/de_sk_fin'+t+'.jpg',img_R)
-            self.imshow = cv2.imread('/Users/zhangyesheng/Desktop/医学信息学/Project/temp/de_sk_fin'+t+'.jpg',-1)
+            cv2.imwrite(self.path+'de_sk_fin'+t+'.jpg',img_R)
+            self.imshow = cv2.imread(self.path+'de_sk_fin'+t+'.jpg',-1)
             height, width = self.imshow.shape
+        QApplication.processEvents()
         bytesPerLine = width
         QImg_Gray = QImage(self.imshow.data, width, height,bytesPerLine, QImage.Format_Grayscale8)
         pixmap_Gray = QPixmap.fromImage(QImg_Gray)
@@ -185,7 +248,7 @@ class BrainProcess(QWidget):
         T_,imgd = cv2.threshold(self.imshow, T, 255, cv2.THRESH_BINARY)
 
         # imgd is a binary image
-
+        QApplication.processEvents()
         height, width = imgd.shape
         bytesPerLine = width
         QImg_Gray = QImage(imgd.data, width, height, bytesPerLine, QImage.Format_Grayscale8)
@@ -202,7 +265,7 @@ class BrainProcess(QWidget):
         T_,imgd = cv2.threshold(self.imshow, T, 255, cv2.THRESH_BINARY)
 
         # imgd is a binary image
-
+        QApplication.processEvents()
         height, width = imgd.shape
         bytesPerLine = width
         QImg_Gray = QImage(imgd.data, width, height, bytesPerLine, QImage.Format_Grayscale8)

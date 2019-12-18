@@ -32,10 +32,10 @@ def DicomIn(filename):
 
 
 if __name__ == "__main__":
-    filename = '/Users/zhangyesheng/Desktop/医学信息学/Project/Dicom/Z_IM7'
+    filename = '/Users/zhangyesheng/Desktop/医学信息学/BrainMRIProcess/Dicom_Seg/brain_013.dcm'
     info, img = DicomIn(filename)
-    Ima = Image.fromarray(img)
-    Ima.show()
+    # Ima = Image.fromarray(img)
+    # Ima.show()
     
-    # for key in info.keys():
-    #     print(key,' : ',info[key])
+    for key in info.keys():
+        print(key,' : ',type(info[key]))
