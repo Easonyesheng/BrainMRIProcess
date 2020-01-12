@@ -38,4 +38,4 @@ if __name__ == "__main__":
     # Ima.show()
     
     for key in info.keys():
-        print(key,' : ',type(info[key]))
+        print(key,' : ',info[key])

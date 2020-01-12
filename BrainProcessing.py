@@ -15,12 +15,14 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 import sys
 import pydicom
+import vtk
 from Imread import DicomIn
 from PIL import Image,ImageQt
 from GMorphology import *
 from De_bone import DSK_DI_Morpho
 from OTSU_G import OTSU_GET
 from ENTRO_G import Entropy_get
+from VTK3D import VTK3d
 
 
 # Operation Window
@@ -168,8 +170,11 @@ class BrainProcess(QWidget):
         btn_ES.move(1000,530)
         btn_ES.clicked.connect(self.EntroSeg)
 
-
-
+        #button -- VTK -- 3D Reconstruction
+        btn_vtk = QPushButton(self)
+        btn_vtk.setText("3DRec")
+        btn_vtk.move(1000,560)
+        btn_vtk.clicked.connect(self.TDRec)
 
 
     #------------------------------------------------------function
@@ -273,6 +278,9 @@ class BrainProcess(QWidget):
         pixmap_Gray = pixmap_Gray.scaled(self.label_OriPic.width(),self.label_OriPic.height())
         
         self.label_S.setPixmap(pixmap_Gray)
+
+    def TDRec(self):
+        VTK3d()
 
 
 

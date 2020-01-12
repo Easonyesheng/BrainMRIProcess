@@ -167,14 +167,14 @@ def DSK_DI_Morpho(array):
 
 
 
-DICOMPath = '/Users/zhangyesheng/Desktop/医学信息学/Project/Dicom/brain/brain_013.dcm'
+DICOMPath = '/Users/zhangyesheng/Desktop/医学信息学/BrainMRIProcess/Dicom_Seg/brain_013.dcm'
 
 
 if __name__ == "__main__":
     info, PixelArray = DicomIn(DICOMPath)
-    # array_no_skull = DSk_DICOM(PixelArray)
-    array_no_skull = DSK_DI_Morpho(PixelArray)
-    cv2.imwrite('/Users/zhangyesheng/Desktop/医学信息学/Project/temp/de_sk_fin'+t+'.jpg',array_no_skull)
+    array_no_skull = DSk_DICOM(PixelArray)
+    # array_no_skull = DSK_DI_Morpho(PixelArray)
+    # cv2.imwrite('/Users/zhangyesheng/Desktop/医学信息学/Project/temp/de_sk_fin'+t+'.jpg',array_no_skull)
     Ima = Image.fromarray(array_no_skull)
     Ima.show() 
     # img = cv2.imread('/Users/zhangyesheng/Desktop/医学信息学/Project/temp/de_sk1.jpg',-1)
